@@ -28,8 +28,8 @@ public class VersionController {
         ForkJoinPool.commonPool().submit(() -> {
             Version version = service.readLastVersion();
             if ((version == null) || version.getVersion().isEmpty())
-                out.setResult(new ResponseEntity<>(HttpStatus.NOT_FOUND));
-            else out.setResult(new ResponseEntity<>(version.getVersion(), HttpStatus.OK));
+                out.setResult(ResponseEntity.notFound().build());
+            else out.setResult(ResponseEntity.ok().body(version.getVersion()));
         });
         return out;
     }
