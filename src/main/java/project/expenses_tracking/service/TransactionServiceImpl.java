@@ -1,14 +1,9 @@
 package project.expenses_tracking.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.Cacheable;
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.TransactionException;
-import project.expenses_tracking.model.Account;
 import project.expenses_tracking.model.Transaction;
-import project.expenses_tracking.repository.AccountRepository;
 import project.expenses_tracking.repository.TransactionRepository;
 
 import java.time.LocalDate;

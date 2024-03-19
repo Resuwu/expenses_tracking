@@ -1,6 +1,5 @@
 package project.expenses_tracking.service;
 
-import project.expenses_tracking.model.Account;
 import project.expenses_tracking.model.Transaction;
 
 import java.time.LocalDate;

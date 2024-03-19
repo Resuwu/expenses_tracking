@@ -24,11 +24,13 @@ public class BalanceUpdateService {
     @Scheduled(cron = "0 * * * * *")
     protected void balanceUpdate() {
         List<Account> accounts = accountRepository.findAll();
-        for (int i = 0; i < accounts.size(); i++) {
-            Account current = accounts.get(i);
+        for (Account current : accounts) {
             Double balance = current.getBalance();
-            List<Transaction> transactions = transactionRepository.findAllByAccountId(accounts.get(i).getId());
-            for (int k = 0; k < transactions.size(); k++) { balance += transactions.get(k).getValue(); }
+            List<Transaction> transactions = transactionRepository.findAllByAccountId(current.getId());
+            for (Transaction transaction : transactions) {
+                balance += transaction.getValue();
+            }
+            current.setBalance(balance);
             accountRepository.save(current);
         }
     }

@@ -1,7 +1,6 @@
 package project.expenses_tracking.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import project.expenses_tracking.model.User;

@@ -13,5 +13,5 @@ public class User {
     @Id
     private String id;
     private String name;
-    User(@NonNull String name) { this.name = name; };
+    User(@NonNull String name) { this.name = name; }
 }

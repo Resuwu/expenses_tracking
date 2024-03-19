@@ -23,7 +23,7 @@ public class VersionController {
     }
     @GetMapping
     public DeferredResult<ResponseEntity<String>> checkVersion() {
-        DeferredResult<ResponseEntity<String>> out = new DeferredResult<ResponseEntity<String>>();
+        DeferredResult<ResponseEntity<String>> out = new DeferredResult<>();
         out.onTimeout(() -> out.setErrorResult(ResponseEntity.status(HttpStatus.REQUEST_TIMEOUT)));
         ForkJoinPool.commonPool().submit(() -> {
             Version version = service.readLastVersion();
